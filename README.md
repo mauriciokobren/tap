@@ -74,8 +74,9 @@ To run all the tests, from tap folder:
 `cd tests
 python test.py
 `
+
 You should see an output likes this, if all the tests passed:
-!(https://raw.githubusercontent.com/mauriciokobren/tap/dev/Output_of_test_execution.png)
+![Output of successful test execution](https://raw.githubusercontent.com/mauriciokobren/tap/dev/Output_of_test_execution.png)
 
 To run just a specific test, assuming you already are in tests folder:
 
