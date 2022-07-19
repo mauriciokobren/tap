@@ -24,6 +24,13 @@ The _BasePageElement_ is an extension of Selenium WebElement class with addition
 
 All the locators used to find fields, buttons or drop downs were added in classes stored in _locators.py_: _HomepageLocators, SearchResultPageLocators, RepositorySearchLocators and UserRepoPageLocators_.
 
+The locators are defined as python tuples data type informing the type of the locator and the corresponding string. Here are some examples:
+```
+SEARCH_FIELD_LOCATOR = (By.NAME,'q')
+REPO_SEARCH_FIELD_LOCATOR = (By.ID,'your-repos-filter')
+LANGUAGE_FILTER_BUTTON_LOCATOR = (By.XPATH, '//*[@id="language-options"]/summary')
+```
+
 
 ### TestData
 All the values used in the testes are represented as methods of the class **_TestData_**. 
@@ -42,6 +49,25 @@ At this point, there is only one file called _tests.py_ with 2 classes:
 
 ### About Page Object Model
 
+## Logging
+Python logging library was used to log information about the progress of each test.
+To do that, first we need to import the library:
+`import logging`
+
+Then define the log level. In this case Information was used:
+`logging.basicConfig(level=logging.INFO)`
+
+Then logging.info was called each time it was interesting to inform some progress of the tests. For example:
+```
+def test_search_in_github(self):
+  logging.info('-----------------------------------------------')
+  logging.info('Starting to test search feature on GitHub')
+  logging.info('Loading github homepage')
+  home_page = homepage.Homepage(self.driver)
+```
+
+It's also interesting to note that the message added in each logging instruction also works as comments of the code.
+
 ## Running the tests
 To run all the tests, from tap folder:
 `cd tests
@@ -52,3 +78,4 @@ To run just a specific test, assuming you already are in tests folder
 `python test.py Class.Desired_test`
 
 For example: **_python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page_**
+
