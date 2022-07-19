@@ -6,11 +6,19 @@ The application used as the base for the tests is GitHub website.
 
 ## Structure
 TAP is structured files distributed in 3 folders:
-- pages: this folder contains all the files implementing the classes that represent the pages and the elements (fields, buttons, etc).
-- testdata: this folder contains the class with all the values used in the testes
-- tests: this folder contains the files with the tests properly saying. 
+- _pages_: this folder contains all the files implementing the classes that represent the pages and the elements (fields, buttons, etc).
+- _testdata_: this folder contains the class with all the values used in the testes
+- _tests_: this folder contains the files with the tests properly saying. 
 
 ### Pages
+All the classes that represent pages or page elements (fields, buttons, etc) are stored here. They contain properties representing parts of each page and also methods that are the actions the user can do in each page.
+The pages available are:
+- _Homepage_: represents GitHub main page
+- _SearchResultPage_: represents GitHub Search Results page
+- _UserPage_: model for user page in GitHub
+- _UserRepoPage_: model for GitHub User Repository page
+
+The _BasePageElement_ is an extension of Selenium WebElement class with additional methods _set_text(self,text)_, _get_text()_ and _hit_enter(self)_.
 
 ### TestData
 All the values used in the testes are represented as methods of the class **_TestData_**. 
