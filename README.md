@@ -4,6 +4,14 @@
 TAP is a simple test automation project written in python and aplying page object model. It uses Selenium as the automation framework and unittest library.
 The application used as the base for the tests is GitHub website.
 
+## Page Object Model
+The Page Object Model (POM) is a design pattern that creates an object repository for storing all web elements.
+When using POM you have the following benefits:
+- Clean and more redable code of your tests since they are splited from the code of web elements manipulation
+- Reduced maintenance since sometimes you just need to adjust things in page classes without touching the code of your tests
+- More code reusage since new tests can use the same page classes
+
+
 ## Structure
 TAP is structured files distributed in 3 folders:
 - _pages_: this folder contains all the files implementing the classes that represent the pages and the elements (fields, buttons, etc).
@@ -47,7 +55,6 @@ At this point, there is only one file called _tests.py_ with 2 classes:
 - **_GitHubSearch_**: this class has 1 test over the Search by User in GitHub
 - **_GitHubRepoSearch_**: this class has 2 tests on the Repository Search and filtering, starting from an user page
 
-### About Page Object Model
 
 ### Logging
 Python logging library was used to log information about the progress of each test.
