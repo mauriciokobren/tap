@@ -38,7 +38,7 @@ class GitHubSearch(unittest.TestCase):
         logging.info('-----------------------------------------------')
 
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()
 
 class GitHubRepoSearch(unittest.TestCase):
     """Simple test on GitHub Repository Search"""
@@ -83,7 +83,7 @@ class GitHubRepoSearch(unittest.TestCase):
             str(number_of_repos == testdata.TestData.NUMBER_OF_REPOS_FILTERED_BY_LANGUAGE))
 
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
