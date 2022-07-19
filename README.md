@@ -85,7 +85,7 @@ For example:
 ## Next steps
 The webdriver obejct is created in the _setup()_ of test classes in tests/test.py. For now Firefox browser was chosed, but more browsers could be supported, like Chrome for example.
 
-No screenshot or video are recorded when a test fails. This can be a good resource for analysis.
+No screenshot or video is recorded when a test fails. This can be a good resource for analysis.
 
 
 
