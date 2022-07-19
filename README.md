@@ -30,3 +30,10 @@ At this point, there is only one file called _tests.py_ with 2 classes:
 ### About Page Object Model
 
 ## Running the tests
+To run all the tests, from tap folder:
+`cd tests
+python test.py
+`
+To run just a specific test, assuming you already are in tests folder
+`python test.py Class.Desired_test`
+For example: **_python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page_**
