@@ -6,7 +6,7 @@ from userrepopage import UserRepoPage
 import logging
 
 class UserPage(BasePage):
-    """Home page action methods come here. I.e. Python.org"""
+    """User page in GitHub"""
 
     def __init__(self, driver):
         self.driver = driver
