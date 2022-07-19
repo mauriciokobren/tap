@@ -23,7 +23,9 @@ The advantage of this technique is that if we need to change the url, we just ne
 
 
 ### Tests
-At this point, there is only one file called tests.py with 2 classes GitHubSearch and GitHubRepoSearch
+At this point, there is only one file called _tests.py_ with 2 classes:
+- **_GitHubSearch_**: this class tests the Search by User in GitHub
+- **_GitHubRepoSearch_**: this class tests the Repository Search starting from an user page
 
 ### About Page Object Model
 
