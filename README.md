@@ -85,7 +85,16 @@ To run just a specific test, assuming you already are in tests folder:
 For example: 
 `python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page`
 
-## Next steps
+## Next steps and improvements
+Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
+```
+...
+sys.path.append(os.path.abspath(os.path.join('..', 'pages')))
+sys.path.append(os.path.abspath(os.path.join('..', '')))
+from pages import homepage,userpage,userrepopage
+...
+```
+
 The webdriver obejct is created in the _setup()_ of test classes in tests/test.py. For now Firefox browser was chosed, but more browsers could be supported, like Chrome for example.
 
 No screenshot or video is recorded when a test fails. This can be a good resource for analysis.
