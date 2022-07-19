@@ -13,7 +13,7 @@ TAP is structured files distributed in 3 folders:
 ### Pages
 
 ### TestData
-All the values used in the testes are represented as methods of the class TestData. 
+All the values used in the testes are represented as methods of the class **_TestData_**. 
 For example, to store the url ot GitHub the property below was created:
 
 `GITHUB_URL = "https://github.com/"`
