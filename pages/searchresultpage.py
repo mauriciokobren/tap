@@ -2,29 +2,29 @@ from element import BasePageElement
 from locators import SearchResultPageLocators
 from basepage import BasePage
 from testdata import testdata
-import time
+import logging
+from selenium.webdriver.common.by import By
 
 class SearchResultPage(BasePage):
     """GitHub Search Results page"""
     
     def __init__(self, driver):
         self.driver = driver
-        self.users = BasePageElement(driver,SearchResultPageLocators.SEARCH_RESULTS_USERS_LOCATOR)
+        logging.basicConfig(level=logging.INFO)
 
-    def title_matches(self):
-        """Checks if window title is the expected"""
-        return testdata.TestData.GITHUB_SEARCH_WINDOW_TITLE in self.driver.title
+    """def Title_matches(self):
+        "Checks if window title is the expected"
+        logging.info('Title in test data is '+ testdata.TestData.GITHUB_SEARCH_WINDOW_TITLE)
+        logging.info('Windows title is' + self.driver.title)
+        return self.driver.title in testdata.TestData.GITHUB_SEARCH_WINDOW_TITLE
+    """
     
-    def click_in_users(self):
+    def Click_in_users(self):
         """Click in Users option"""
+        self.users = BasePageElement(self.driver,SearchResultPageLocators.SEARCH_RESULTS_USERS_LOCATOR)
         self.users.click()
 
-    def result_has_user(self,user):
+    def Result_has_user(self,user):
         """Find page title in search results page"""
-        return user in self.driver.page_source
-
-    def go_to_users(self,user):
-        """Triggers the search"""
-        self.users.click()
-        element = self.driver.find_element(By.LINK_TEXT, user)
-        element.click()
+        self.user = BasePageElement(self.driver,(By.LINK_TEXT,testdata.TestData.USER_FULLNAME))
+        return user == self.user.text
