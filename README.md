@@ -49,7 +49,7 @@ At this point, there is only one file called _tests.py_ with 2 classes:
 
 ### About Page Object Model
 
-## Logging
+### Logging
 Python logging library was used to log information about the progress of each test.
 To do that, first we need to import the library:
 `import logging`
@@ -81,4 +81,12 @@ To run just a specific test, assuming you already are in tests folder:
 
 For example: 
 `python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page`
+
+## Next steps
+The webdriver obejct is created in the _setup()_ of test classes in tests/test.py. For now Firefox browser was chosed, but more browsers could be supported, like Chrome for example.
+
+No screenshot or video are recorded when a test fails. This can be a good resource for analysis.
+
+
+
 
