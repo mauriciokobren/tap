@@ -7,14 +7,23 @@ The application used as the base for the tests is GitHub website.
 ## Structure
 TAP is structured files distributed in 3 folders:
 - pages: this folder contains all the files implementing the classes that represent the pages and the elements (fields, buttons, etc).
-- testdata: this folder contains just one file with a class containing only properties that represents each value used in the testes. For example, if a test searches a especific user, there is a properti in TestData class to store the value used in the search. This way if we need to change the search key, we just changed in TestData class and all the other classes will use the new value.
-- tests: this folder contains the files with the tests properly saying. At this point, there is only one file called tests.py with 2 classes GitHubSearch and GitHubRepoSearch
+- testdata: this folder contains the class with all the values used in the testes
+- tests: this folder contains the files with the tests properly saying. 
 
 ### Pages
 
 ### TestData
+All the values used in the testes are represented as methods of the class TestData. 
+For example, to store the url ot GitHub the property below was created:
+
+`GITHUB_URL = "https://github.com/"`
+
+This property is used in many other places (mainly page classes) and also to create more complex urls.
+The advantage of this technique is that if we need to change the url, we just need to chang in TestData class and all the other classes will use the new value.
+
 
 ### Tests
+At this point, there is only one file called tests.py with 2 classes GitHubSearch and GitHubRepoSearch
 
 ### About Page Object Model
 
