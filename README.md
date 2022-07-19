@@ -18,7 +18,12 @@ The pages available are:
 - _UserPage_: model for user page in GitHub
 - _UserRepoPage_: model for GitHub User Repository page
 
+All the pages where extended from _BasePage_. At the moment no properties or methods were added to this class, but it could be the case if we need a certain behavior in all the pages. 
+
 The _BasePageElement_ is an extension of Selenium WebElement class with additional methods _set_text(self,text)_, _get_text()_ and _hit_enter(self)_.
+
+All the locators used to find fields, buttons or drop downs were added in classes stored in _locators.py_: _HomepageLocators, SearchResultPageLocators, RepositorySearchLocators and UserRepoPageLocators_.
+
 
 ### TestData
 All the values used in the testes are represented as methods of the class **_TestData_**. 
