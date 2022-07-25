@@ -4,6 +4,14 @@
 TAP is a simple test automation project written in python and aplying page object model. It uses Selenium as the automation framework and unittest library.
 The application used as the base for the tests is GitHub website.
 
+## Page Object Model
+The Page Object Model (POM) is a design pattern that creates an object repository for storing all web elements.
+When using POM you have the following benefits:
+- Clean and more redable code of your tests since they are splited from the code of web elements manipulation
+- Reduced maintenance since sometimes you just need to adjust things in page classes without touching the code of your tests
+- More code reusage since new tests can use the same page classes
+
+
 ## Structure
 TAP is structured files distributed in 3 folders:
 - _pages_: this folder contains all the files implementing the classes that represent the pages and the elements (fields, buttons, etc).
@@ -44,10 +52,9 @@ The advantage of this technique is that if we need to change the url, we just ne
 
 ### Tests
 At this point, there is only one file called _tests.py_ with 2 classes:
-- **_GitHubSearch_**: this class tests the Search by User in GitHub
-- **_GitHubRepoSearch_**: this class tests the Repository Search starting from an user page
+- **_GitHubSearch_**: this class has 1 test over the Search by User in GitHub
+- **_GitHubRepoSearch_**: this class has 2 tests on the Repository Search and filtering, starting from an user page
 
-### About Page Object Model
 
 ### Logging
 Python logging library was used to log information about the progress of each test.
@@ -75,6 +82,9 @@ To run all the tests, from tap folder:
 python test.py
 `
 
+You should see an output likes this, if all the tests passed:
+![Output of successful test execution](https://raw.githubusercontent.com/mauriciokobren/tap/dev/Output_of_test_execution.png)
+
 To run just a specific test, assuming you already are in tests folder:
 
 `python test.py Class.Desired_test`
@@ -82,7 +92,16 @@ To run just a specific test, assuming you already are in tests folder:
 For example: 
 `python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page`
 
-## Next steps
+## Next steps and improvements
+Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
+```
+...
+sys.path.append(os.path.abspath(os.path.join('..', 'pages')))
+sys.path.append(os.path.abspath(os.path.join('..', '')))
+from pages import homepage,userpage,userrepopage
+...
+```
+
 The webdriver obejct is created in the _setup()_ of test classes in tests/test.py. For now Firefox browser was chosed, but more browsers could be supported, like Chrome for example.
 
 No screenshot or video is recorded when a test fails. This can be a good resource for analysis.
