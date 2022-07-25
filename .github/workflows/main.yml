@@ -38,4 +38,5 @@ jobs:
 
       - name: Run Tests
         run: |
+          pwd
           python tests\test.py
