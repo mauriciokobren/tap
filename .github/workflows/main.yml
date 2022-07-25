@@ -38,6 +38,5 @@ jobs:
 
       - name: Run Tests
         run: |
-          pwd
-          ls
-          python tests\test.py
+          cd tests
+          python test.py
