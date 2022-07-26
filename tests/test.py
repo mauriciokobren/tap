@@ -3,6 +3,7 @@ sys.path.append(os.path.abspath(os.path.join('..', 'pages')))
 sys.path.append(os.path.abspath(os.path.join('..', '')))
 
 from selenium import webdriver
+from selenium.webdriver import FirefoxOptions
 from pages import homepage,userpage,userrepopage
 sys.path.append(os.path.abspath(os.path.join('..', 'testdata')))
 from testdata import testdata
@@ -12,12 +13,21 @@ class GitHubSearch(unittest.TestCase):
     """Simple set of tests on GitHub search"""
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
         logging.basicConfig(level=logging.INFO)
+        logging.info('----------------------------------------------------------')
         logging.info('Inicializing webdriver')
 
+        opts = FirefoxOptions()
+        if os.getenv('TAP_HEADLESS'):
+            opts.add_argument('--headless')
+            logging.info('Headless mode detected - tests will run without opening the browser')
+        else:
+            logging.info('Headless mode NOT detected - tests will open the browser')
+        self.driver = webdriver.Firefox(options=opts)
+
+
     def test_search_in_github(self):
-        logging.info('-----------------------------------------------')
+        logging.info('----------------------------------------------------------')
         logging.info('Starting to test search feature on GitHub')
 
         logging.info('Loading github homepage')
@@ -35,7 +45,7 @@ class GitHubSearch(unittest.TestCase):
         self.assertTrue(user_found)
         logging.info(f'Asserting that expected user was found in search results: {user_found}')
         logging.info('Tests the search feature on GitHub is completed')
-        logging.info('-----------------------------------------------')
+        logging.info('----------------------------------------------------------')
 
     def tearDown(self):
         self.driver.quit()
@@ -44,9 +54,18 @@ class GitHubRepoSearch(unittest.TestCase):
     """Simple test on GitHub Repository Search"""
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
         logging.basicConfig(level=logging.INFO)
+        logging.info('----------------------------------------------------------')
         logging.info('Inicializing webdriver')
+
+        opts = FirefoxOptions()
+        if os.getenv('TAP_HEADLESS'):
+            opts.add_argument('--headless')
+            logging.info('Headless mode detected - tests will run without opening the browser')
+        else:
+            logging.info('Headless mode NOT detected - tests will open the browser')
+        self.driver = webdriver.Firefox(options=opts)
+
 
     def test_search_by_existing_repo_in_user_page(self):
         logging.info('----------------------------------------------------------')
