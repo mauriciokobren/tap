@@ -66,31 +66,58 @@ Then define the log level. In this case Information was used:
 
 Then logging.info was called each time it was interesting to inform some progress of the tests. For example:
 ```
-def test_search_in_github(self):
-  logging.info('-----------------------------------------------')
-  logging.info('Starting to test search feature on GitHub')
-  logging.info('Loading github homepage')
-  home_page = homepage.Homepage(self.driver)
+def test_search_in_github(self):  
+  logging.info('-----------------------------------------------')  
+  logging.info('Starting to test search feature on GitHub')  
+  logging.info('Loading github homepage')  
+  home_page = homepage.Homepage(self.driver)  
 ```
 
-It's also interesting to note that the message added in each logging instruction also works as comments of the code.
+It's also interesting to note that the message added in each logging instruction also works as comments of the code.  
 
-## Running the tests
-To run all the tests, from tap folder:
+## Manual execution of the tests
+First you need to clone the repository in your machine.  
+You need to have Selenium library. To install using pip: ```pip install selenium```  
+More details here: https://selenium-python.readthedocs.io/installation.html
 
-`cd tests
+To run all the tests, from tap folder:  
+```cd tests  
 python test.py
-`
+```  
 
-You should see an output likes this, if all the tests passed:
-![Output of successful test execution](https://raw.githubusercontent.com/mauriciokobren/tap/dev/Output_of_test_execution.png)
+You should see an output likes this, if all the tests passed:  
+![Output of successful test execution](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/Output_of_test_execution.png)
 
-To run just a specific test, assuming you already are in tests folder:
+To run just a specific test, assuming you already are in tests folder:  
+```python test.py Class.Desired_test```  
 
-`python test.py Class.Desired_test`
+For example:   
+```python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page```  
 
-For example: 
-`python test.py GitHubRepoSearch.test_search_by_existing_repo_in_user_page`
+An interesting option was added: run the tests in headless mode, it means, without opening the browser.  
+To activate this option, you need to add an environment variable:  
+ Linux: ```export TAP_HEADLESS=1```  
+ Windows: ```set TAP_HEADLESS=1```  
+
+This option should work in both.
+
+
+## Workflow in GitHub Actions
+For testing purpose, a workflow was created using GitHub Action.  
+![Workflow in GitHub Action](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow.png)
+
+Its name is **CI** and its definition file is here: https://github.com/mauriciokobren/tap/blob/master/.github/workflows/main.yml  
+
+Basically it checks out the code in a Linux instance, install the dependencies and run the tests.  
+**CI** workflow is triggered every time a pull request agains master is created or when a commit in master is done.  
+
+Clicking on a specific build, you can see more details, something like the image below.  
+![Build details](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_detail.png)
+
+To see the steps of the run, just click on build. You should see something like the image below:  
+![Build steps](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_steps.png)
+
+
 
 ## Next steps and improvements
 Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
