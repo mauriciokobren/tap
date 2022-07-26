@@ -86,7 +86,7 @@ python test.py
 ```  
 
 You should see an output likes this, if all the tests passed:  
-![Output of successful test execution](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/Output_of_test_execution.png)
+![Output of successful test execution](https://github.com/mauriciokobren/tap/blob/master/Output_of_test_execution.png)
 
 To run just a specific test, assuming you already are in tests folder:  
 ```python test.py Class.Desired_test```  
@@ -104,7 +104,7 @@ This option should work in both.
 
 ## Workflow in GitHub Actions
 For testing purpose, a workflow was created using GitHub Action.  
-![Workflow in GitHub Action](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow.png)
+![Workflow in GitHub Action](https://github.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow.png)
 
 Its name is **CI** and its definition file is here: https://github.com/mauriciokobren/tap/blob/master/.github/workflows/main.yml  
 
@@ -112,10 +112,10 @@ Basically it checks out the code in a Linux instance, install the dependencies a
 **CI** workflow is triggered every time a pull request agains master is created or when a commit in master is done.  
 
 Clicking on a specific build, you can see more details, something like the image below.  
-![Build details](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_detail.png)
+![Build details](https://github.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_detail.png)
 
 To see the steps of the run, just click on build. You should see something like the image below:  
-![Build steps](https://raw.githubusercontent.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_steps.png)
+![Build steps](https://github.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_steps.png)
 
 
 
