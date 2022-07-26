@@ -117,7 +117,8 @@ Clicking on a specific build, you can see more details, something like the image
 To see the steps of the run, just click on build. You should see something like the image below:  
 ![Build steps](https://github.com/mauriciokobren/tap/blob/master/GitHub_Actions_CI_workflow-build_steps.png)
 
-
+The article below was very useful to understand how to setup the GitHub Actins workflow (AWS part was not implemented):  
+https://www.freecodecamp.org/news/how-to-setup-a-ci-cd-pipeline-with-github-actions-and-aws/  
 
 ## Next steps and improvements
 Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
