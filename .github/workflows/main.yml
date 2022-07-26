@@ -39,9 +39,11 @@ jobs:
           sudo mv geckodriver "/usr/local/bin"
           ls /usr/local/bin/gecko*
           echo "dependencies ok"
-          export TAP_HEADLESS=1
 
       - name: Run Tests
         run: |
+          export TAP_HEADLESS=1
+          printenv TAP_HEADLESS
+          echo "starting tests"
           cd tests
           python test.py
