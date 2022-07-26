@@ -44,3 +44,5 @@ jobs:
         run: |
           cd tests
           python test.py
+          echo "geckodriver.log:"
+          cat geckodriver.log
