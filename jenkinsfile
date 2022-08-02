@@ -21,6 +21,7 @@ pipeline {
             steps {
                 sh 'printenv TAP_HEADLESS'
                 sh 'echo "starting tests"'
+                sh 'pwd'
                 sh 'cd tests'
                 sh 'python test.py'
             }
