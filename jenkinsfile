@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    environment {
+        TAP_HEADLESS = '1'
+    }
+
+    stages {
+        stage('Checkout') { // Checkout (git clone ...) the projects repository
+            steps {
+                checkout scm
+                echo 'Checking the code out'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'python --version'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'printenv TAP_HEADLESS'
+                sh 'echo "starting tests"'
+                sh 'cd tests'
+                sh 'python test.py'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
