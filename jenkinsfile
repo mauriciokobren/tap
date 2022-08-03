@@ -27,6 +27,7 @@ pipeline {
                 sh 'printenv TAP_HEADLESS'
                 sh 'echo "starting tests"'
                 sh 'pwd'
+                sh 'sudo chmod -R o=wrx tests/'
                 dir('tests'){
                     sh 'ls'
                 }
