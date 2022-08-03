@@ -30,7 +30,7 @@ pipeline {
                 dir('tests'){
                     sh 'ls'
                 }
-                sh 'sudo chmod o=wrx test.py'                
+                sh 'chmod o=wrx test.py'                
                 sh 'python3.8 test.py'
             }
         }
