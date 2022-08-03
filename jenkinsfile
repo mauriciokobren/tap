@@ -18,8 +18,7 @@ pipeline {
                 sh 'python3.8 -m pip install --upgrade pip'
                 sh 'pip3.8 install -r requirements.txt'
                 sh 'chmod +x geckodriver'
-                sh 'sudo mv geckodriver "/usr/local/bin"'
-                sh 'ls /usr/local/bin/gecko*'
+                sh 'export PATH=/var/lib/jenkins/workspace/test:$PATH'
                 sh 'echo "dependencies ok"'
             }
         }
