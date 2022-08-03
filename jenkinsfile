@@ -29,7 +29,8 @@ pipeline {
                 sh 'pwd'
                 dir('tests'){
                     sh 'ls'
-                    sh 'chmod o=wrx test.py'                
+                    sh 'chmod o=wrx test.py'
+                    sh 'chmod o=wrx geckodriver.log'
                     sh 'python3.8 test.py'                    
                 }
             }
