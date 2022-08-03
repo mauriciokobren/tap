@@ -120,6 +120,20 @@ To see the steps of the run, just click on build. You should see something like 
 The article below was very useful to understand how to setup the GitHub Actins workflow (AWS part was not implemented):  
 https://www.freecodecamp.org/news/how-to-setup-a-ci-cd-pipeline-with-github-actions-and-aws/  
 
+## Jenkins Pipeline to run the tests  
+In order to demonstrate how the test execution can be automated with Jenkins, I have created the following solution:  
+- Createad an EC2 server in Amazon Web Services (AWS) running on Amazon Linux 2
+- Installed and configured Jenkins, git, python, firefox and geckodriver in this machine
+- Created the TAP pipeline to run the tests  
+
+TAP pipeline is defined in [jenkinsfile](jenkinsfile) and has the following stages:
+- **Checkout** the code from GitHub  
+- **Build** to install the requirements and grant permissions  
+- **Test** to execute the tests defined in TAP  
+
+To see it in action you can visit [Jenkins TAP Pipeline](http://ec2-18-228-232-60.sa-east-1.compute.amazonaws.com:8080/job/test/).  
+You can log in with guest / guest.  
+
 ## Next steps and improvements
 Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
 ```
