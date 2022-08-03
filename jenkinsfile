@@ -18,7 +18,7 @@ pipeline {
                 sh 'python3.8 -m pip install --upgrade pip'
                 sh 'pip3.8 install -r requirements.txt'
                 sh 'chmod +x geckodriver'
-                sh 'export PATH=/var/lib/jenkins/workspace/test:$PATH'
+                sh 'export PATH=/var/lib/jenkins/workspace/test:/var/lib/jenkins/workspace/test/pages:$PATH'
                 sh 'echo "dependencies ok"'
             }
         }
@@ -27,8 +27,9 @@ pipeline {
                 sh 'printenv TAP_HEADLESS'
                 sh 'echo "starting tests"'
                 sh 'pwd'
+                sh 'cd ./tests'
                 sh 'echo "folder content is: "'
-                sh 'python3.8 tests/test.py'
+                sh 'python3.8 test.py'
             }
         }
         stage('Deploy') {
