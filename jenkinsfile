@@ -28,7 +28,7 @@ pipeline {
                 sh 'echo "starting tests"'
                 sh 'pwd'
                 dir('tests'){
-                  sh "pwd"
+                    sh 'ls'
                 }
                 sh 'python3.8 test.py'
             }
