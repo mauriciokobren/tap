@@ -27,8 +27,8 @@ pipeline {
                 sh 'printenv TAP_HEADLESS'
                 sh 'echo "starting tests"'
                 sh 'pwd'
-                sh 'cd ./tests'
-                sh 'echo "folder content is: "'
+                sh 'dir("tests")'
+                sh 'pwd'
                 sh 'python3.8 test.py'
             }
         }
