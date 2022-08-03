@@ -133,7 +133,7 @@ TAP pipeline is defined in [jenkinsfile](jenkinsfile) and has the following stag
 
 To see it in action you can visit [Jenkins TAP Pipeline](http://ec2-18-228-232-60.sa-east-1.compute.amazonaws.com:8080/job/test/).  
 You can log in with guest / guest. You should see something like the image below:  
-![TAP Jenkins pipeline](https://github.com/mauriciokobren/tap/blob/master/TAP pipeline on Jenkins.png)
+![TAP Jenkins pipeline](https://github.com/mauriciokobren/tap/blob/master/TAP_pipeline_on_Jenkins.png)
 
 ## Next steps and improvements
 Maybe there is a better way to handle the import of modules stored in different folders. For example, in _tests\test.py_ I need to import modules stored in _pages_ folder. After some research on the internet, I found that the folder should be added in python path:
