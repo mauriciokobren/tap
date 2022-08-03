@@ -29,9 +29,9 @@ pipeline {
                 sh 'pwd'
                 dir('tests'){
                     sh 'ls'
+                    sh 'chmod o=wrx test.py'                
+                    sh 'python3.8 test.py'                    
                 }
-                sh 'chmod o=wrx test.py'                
-                sh 'python3.8 test.py'
             }
         }
         stage('Deploy') {
