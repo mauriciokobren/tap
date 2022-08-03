@@ -14,7 +14,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'python --version'
+                sh 'python3.8 --version'
+                sh 'python3.8 -m pip install --upgrade pip'
+                sh 'pip install -r requirements.txt'
+                sh 'chmod +x geckodriver'
+                sh 'sudo mv geckodriver "/usr/local/bin"'
+                sh 'ls /usr/local/bin/gecko*'
+                sh 'echo "dependencies ok"'
             }
         }
         stage('Test') {
@@ -22,12 +28,8 @@ pipeline {
                 sh 'printenv TAP_HEADLESS'
                 sh 'echo "starting tests"'
                 sh 'pwd'
-                sh 'cd tests'
-                sh 'echo "current path is:"'
-                sh 'pwd'
                 sh 'echo "folder content is: "'
-                sh 'll'
-                sh 'python test.py'
+                sh 'python3.8 tests/test.py'
             }
         }
         stage('Deploy') {
